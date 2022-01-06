@@ -14,6 +14,12 @@ class GamePlayers(Enum):
 
 
 class TennisGame:
+    _score_names = {
+        0: "Love",
+        1: "Fifteen",
+        2: "Thirty",
+        3: "Forty"
+    }
     
     def __init__(self, player1: Player, player2: Player) -> None:
         self.player1 = player1
@@ -26,15 +32,6 @@ class TennisGame:
             self.player2.game_score += 1
 
     def score(self):
-        player1_score_name = self.get_score_name(self.player1.game_score)
-        player2_score_name = self.get_score_name(self.player2.game_score)
+        player1_score_name = self._score_names[self.player1.game_score]
+        player2_score_name = self._score_names[self.player2.game_score]
         return f"{self.player1.name}: {player1_score_name} - {self.player2.name}: {player2_score_name}"
-
-    @staticmethod
-    def get_score_name(score):
-        if score == 0:
-            return "Love"
-        elif score == 1:
-            return "Fifteen"
-        else:
-            return "Thirty"
