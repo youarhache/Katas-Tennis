@@ -24,3 +24,6 @@ class TennisGame:
             self.player1.game_score += 1
         elif player == GamePlayers.player2:
             self.player2.game_score += 1
+
+    def score(self):
+        return f"{self.player1.name}: Love - {self.player2.name}: Love"

@@ -32,9 +32,13 @@ def test_can_create_a_game(federer, nadal):
     assert game.player2 == federer
 
 
-def test_can_add_point_to_player(new_game, federer, nadal):
+def test_can_add_point_to_player(new_game):
     new_game.add_point(player=GamePlayers.player1)
 
     assert new_game.player1.game_score == 1
     assert new_game.player2.game_score == 0
     
+def test_score_return_love_when_zero(new_game):
+    current_score = new_game.score()
+
+    assert current_score == "Nadal: Love - Federer: Love"
