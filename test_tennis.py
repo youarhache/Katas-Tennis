@@ -126,3 +126,9 @@ def test_score_when_both_player_above_3_and_player2_winnig_then_advantage(new_ga
     current_score = new_game.score()
 
     assert current_score == "Nadal: _ - Federer: Advantage"
+
+
+def test_get_winner_when_still_no_winner_then_none(new_game):
+    winner = new_game.get_winner()
+
+    assert winner is None

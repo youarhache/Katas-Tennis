@@ -32,12 +32,25 @@ class TennisGame:
             self.player2.game_score += 1
 
     def score(self):
-        if self.player1.game_score == self.player2.game_score >= 3:
+        if self.is_deuce():
             return "Deuce"
-        elif self.player1.game_score > self.player2.game_score >= 3:
+        elif self.is_advantage_palyer1():
             return f"{self.player1.name}: Advantage - {self.player2.name}: _"
-        elif self.player2.game_score > self.player1.game_score >= 3:
+        elif self.is_advantage_player2():
             return f"{self.player1.name}: _ - {self.player2.name}: Advantage"
+
         player1_score_name = self._score_names.get(self.player1.game_score)
         player2_score_name = self._score_names.get(self.player2.game_score)
         return f"{self.player1.name}: {player1_score_name} - {self.player2.name}: {player2_score_name}"
+
+    def is_deuce(self):
+        return self.player1.game_score == self.player2.game_score >= 3
+
+    def is_advantage_player2(self):
+        return self.player2.game_score > self.player1.game_score >= 3
+
+    def is_advantage_palyer1(self):
+        return self.player1.game_score > self.player2.game_score >= 3
+
+    def get_winner(self):
+        pass
