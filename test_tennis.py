@@ -42,3 +42,11 @@ def test_score_return_love_when_zero(new_game):
     current_score = new_game.score()
 
     assert current_score == "Nadal: Love - Federer: Love"
+
+
+def test_score_when_one_then_fifteen(new_game):
+    new_game.player2.game_score = 1
+
+    current_score = new_game.score()
+
+    assert current_score == "Nadal: Love - Federer: Fifteen"
