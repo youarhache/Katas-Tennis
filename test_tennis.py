@@ -90,3 +90,12 @@ def test_score_when_player2_has_3_then_forty(new_game):
     current_score = new_game.score()
 
     assert current_score == "Nadal: Love - Federer: Forty"
+
+
+def test_score_when_both_player_at_3_then_deuce(new_game):
+    new_game.player1.game_score = 3
+    new_game.player2.game_score = 3
+
+    current_score = new_game.score()
+
+    assert current_score == "Deuce"
