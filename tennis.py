@@ -34,6 +34,10 @@ class TennisGame:
     def score(self):
         if self.player1.game_score == self.player2.game_score >= 3:
             return "Deuce"
+        elif self.player1.game_score > self.player2.game_score >= 3:
+            return f"{self.player1.name}: Advantage - {self.player2.name}: _"
+        elif self.player2.game_score > self.player1.game_score >= 3:
+            return f"{self.player1.name}: _ - {self.player2.name}: Advantage"
         player1_score_name = self._score_names.get(self.player1.game_score)
         player2_score_name = self._score_names.get(self.player2.game_score)
         return f"{self.player1.name}: {player1_score_name} - {self.player2.name}: {player2_score_name}"

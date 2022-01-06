@@ -108,3 +108,21 @@ def test_score_when_both_player_above_3_and_equal_then_deuce(new_game):
     current_score = new_game.score()
 
     assert current_score == "Deuce"
+
+
+def test_score_when_both_player_above_3_and_player1_winnig_then_advantage(new_game):
+    new_game.player1.game_score = 5
+    new_game.player2.game_score = 4
+
+    current_score = new_game.score()
+
+    assert current_score == "Nadal: Advantage - Federer: _"
+
+
+def test_score_when_both_player_above_3_and_player2_winnig_then_advantage(new_game):
+    new_game.player1.game_score = 3
+    new_game.player2.game_score = 4
+
+    current_score = new_game.score()
+
+    assert current_score == "Nadal: _ - Federer: Advantage"
