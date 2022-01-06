@@ -134,9 +134,26 @@ def test_get_winner_when_still_no_winner_then_none(new_game):
     assert winner is None
 
 
-def test_gat_winner_when_player1_win_then_player1(new_game):
+def test_get_winner_when_player1_win_then_player1(new_game):
     new_game.player1.game_score = 4
 
     winner = new_game.get_winner()
 
     assert winner == new_game.player1
+
+
+def test_get_winner_when_player2_win_then_player2(new_game):
+    new_game.player2.game_score = 4
+
+    winner = new_game.get_winner()
+
+    assert winner == new_game.player2
+
+
+def test_get_winner_when_deuce_then_none(new_game):
+    new_game.player1.game_score = 4
+    new_game.player2.game_score = 4
+
+    winner = new_game.get_winner()
+
+    assert winner is None
