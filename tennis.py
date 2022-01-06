@@ -53,4 +53,6 @@ class TennisGame:
         return self.player1.game_score > self.player2.game_score >= 3
 
     def get_winner(self):
-        pass
+        if self.player1.game_score == 4:
+            return self.player1
+        return None
