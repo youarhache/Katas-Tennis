@@ -157,3 +157,12 @@ def test_get_winner_when_deuce_then_none(new_game):
     winner = new_game.get_winner()
 
     assert winner is None
+
+
+def test_get_winner_when_one_point_diff(new_game):
+    new_game.player1.game_score = 4
+    new_game.player2.game_score = 3
+
+    winner = new_game.get_winner()
+
+    assert winner is None
