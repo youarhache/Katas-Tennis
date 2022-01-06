@@ -26,7 +26,9 @@ class TennisGame:
             self.player2.game_score += 1
 
     def score(self):
-        return f"{self.player1.name}: Love - {self.player2.name}: {self.get_score_name(self.player2.game_score)}"
+        player1_score_name = self.get_score_name(self.player1.game_score)
+        player2_score_name = self.get_score_name(self.player2.game_score)
+        return f"{self.player1.name}: {player1_score_name} - {self.player2.name}: {player2_score_name}"
 
     @staticmethod
     def get_score_name(score):
