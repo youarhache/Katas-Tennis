@@ -34,4 +34,7 @@ class TennisGame:
     def get_score_name(score):
         if score == 0:
             return "Love"
-        return "Fifteen"
+        elif score == 1:
+            return "Fifteen"
+        else:
+            return "Thirty"

@@ -58,3 +58,19 @@ def test_score_when_player1_has_one_then_fifteen(new_game):
     current_score = new_game.score()
 
     assert current_score == "Nadal: Fifteen - Federer: Love"
+
+
+def test_score_when_player1_has_2_then_thirty(new_game):
+    new_game.player1.game_score = 2
+
+    current_score = new_game.score()
+
+    assert current_score == "Nadal: Thirty - Federer: Love"
+
+
+def test_score_when_player2_has_2_then_thirty(new_game):
+    new_game.player2.game_score = 2
+
+    current_score = new_game.score()
+
+    assert current_score == "Nadal: Love - Federer: Thirty"
